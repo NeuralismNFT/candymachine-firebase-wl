@@ -1,0 +1,43 @@
+/* Customize your main colors in :root variables */
+:root {
+  --main-background-color: #000000;
+  --card-background-color: #804980;
+  --countdown-background-color: #433765;
+  --main-text-color:#ffffff;
+  --title-text-color:#8b8b8b;
+}
+
+body{
+/*  background-color:var(--main-background-color);*/
+  /* background: url("img/background.png"); */
+  /* background-size: cover; */
+  font-family:"robo";
+  font-size: 1.1em;
+}
+
+h2, p{
+  color: var(--main-text-color);
+}
+
+h3{
+font-weight: normal;
+}
+
+
+@font-face {
+  font-family: 'robo';
+  src: url(Roboto_Mono/static/RobotoMono-Regular.ttf)
+}
+
+@keyframes pulse {
+  0% {
+      color: white;
+  }
+  50% {
+      color: grey;
+  }
+  100% {
+      color: white;
+  }
+}
+
