@@ -160,7 +160,6 @@ const Home = (props: HomeProps) => {
             throw new Error("no firebase whitelist collection name")
         }
         const db = getFirestore(props.firebaseApp);
-        // console.log("updateFirebaseMintingStatus", wl.data(), status);
         const cityRef = doc(db, props.firebaseCollectionName, wl.id);
         await setDoc(cityRef, { status: status }, { merge: true });
     }
@@ -170,7 +169,6 @@ const Home = (props: HomeProps) => {
             throw new Error("no firebase whitelist collection name")
         }
         const db = getFirestore(props.firebaseApp);
-        // console.log("updateFirebaseTxId", wl.id, id);
         const cityRef = doc(db, props.firebaseCollectionName, wl.id);
         await setDoc(cityRef, { txId: id, metadataKey: metadataKey }, { merge: true });
     }
@@ -294,10 +292,8 @@ const Home = (props: HomeProps) => {
                     });
 
                     throwConfetti();
-                    // displaySuccess(mint.publicKey);
                 } else if (status && !status.err) {
                     // Check what happened and update firebase
-                    // await updateFirebaseMintingStatus(firebaseWL, "notMinted")
 
                     setAlertState({
                         open: true,
@@ -306,7 +302,6 @@ const Home = (props: HomeProps) => {
                         severity: 'error',
                         hideDuration: 8000,
                     });
-                    // refreshCandyMachineState();
                 } else {
                     await updateFirebaseMintingStatus(firebaseWL, "notMinted")
                     setAlertState({
@@ -314,7 +309,6 @@ const Home = (props: HomeProps) => {
                         message: 'Mint failed! Please try again!',
                         severity: 'error',
                     });
-                    // refreshCandyMachineState();
                 }
             }
         } catch (error: any) {
@@ -349,18 +343,6 @@ const Home = (props: HomeProps) => {
             setIsMinting(false);
         }
     };
-
-
-    // useEffect(() => {
-    //     refreshCandyMachineState();
-    // }, [
-    //     anchorWallet,
-    //     props.candyMachineId,
-    //     props.connection,
-    //     isEnded,
-    //     isPresale,
-    //     refreshCandyMachineState
-    // ]);
 
     return (
         <main>
